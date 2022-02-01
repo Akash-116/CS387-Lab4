@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Routes } from "react-router-dom";
 import './App.css';
 
 import InputTodo from "./components/InputTodo";
@@ -8,26 +8,23 @@ import ListMatches from "./components/ListMatches";
 
 function App() {
   return (
-    // <BrowserRouter>
-    //   <div className="container">
-    //     <InputTodo />
-    //     <ListTodos />
-    //     <Route path="/" >
-    //       <ListMatches />
-    //     </Route>
-
-    //   </div>
-    //   {/* <ListMatches /> */}
-
-
-    // </BrowserRouter>
-
     <BrowserRouter>
-      <Switch>
-        <Route path="/" component={ListMatches} />
-        {/* <Route path="/about" component={About} /> */}
-      </Switch>
+    {/* //   <div className="container">
+    //     <InputTodo />
+    //     <ListTodos />npm ls */}
+      <Routes>
+        <Route path="/matches" element={<ListMatches />} />
+        <Route path="/"/>
+          
+      </Routes>
+        
+
+   {/* <ListMatches /> */}
+
+
     </BrowserRouter>
+
+
   );
 }
 
