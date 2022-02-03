@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import $ from "jquery";
+import { Link } from "react-router-dom";
 
 const ListMatches = () => {
 
@@ -32,20 +32,15 @@ const ListMatches = () => {
             <table id="allMatchesTable" class="table table-dark table-striped">
                 <thead>
                     <tr>
-                        <th>MatchId</th>
+                        <th></th>
                         <th>Team1</th>
                         <th>Team2</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {/* <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                    </tr> */}
                     {matches.map(match => (
                         <tr key={match.match_id}>
-                            <td>{match.match_id}</td>
+                            <td><Link to={`/matches/${match.match_id}`} >{match.match_id} </Link></td>
                             <td>{match.team1}</td>
                             <td>{match.team2}</td>
                             {/* <td><button className="btn btn-danger "
