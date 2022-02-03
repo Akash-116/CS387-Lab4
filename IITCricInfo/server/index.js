@@ -39,22 +39,22 @@ app.get("/matches", async (req, res) => {
     }
 });
 
-// //get a todo
+//get a todo
 
-// app.get("/todos/:id", async (req, res) => {
-//     try {
-//         const { id } = req.params;
-//         const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [
-//             id
-//         ]);
+app.get("/matches/:match_id", async (req, res) => {
+    try {
+        const { match_id } = req.params;
+        const matchDetail = await pool.query("SELECT * FROM match WHERE match_id = $1", [
+            match_id
+        ]);
 
-//         res.json(todo.rows[0]);
-//     } catch (err) {
-//         console.error(err.message);
-//         // res.json(err.message);
+        res.json(matchDetail.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        // res.json(err.message);
 
-//     }
-// });
+    }
+});
 
 // //update a todo
 
