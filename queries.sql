@@ -1,11 +1,14 @@
-select team1,
-       team2,
+select t1.team_name as team1,
+       t2.team_name as team2,
        match_winner,
        venue_name,
+       match_id,
        city_name
 from match,
-     venue
-where match.venue_id=venue.venue_id;
+     venue,
+     team as t2,
+     team as t1
+where match.venue_id=venue.venue_id and match.team1=t1.team_id and match.team2 = t2.team_id;
 
 -- score card :
  -- batting:

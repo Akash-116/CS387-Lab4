@@ -30,7 +30,7 @@ app.use(express.json()); //req.body
 
 app.get("/matches", async (req, res) => {
     try {
-        const allMatches = await pool.query("SELECT * FROM match order by season_year desc");
+        const allMatches = await pool.query("select t1.team_name as team1,t2.team_name as team2,match_winner,venue_name,city_name,match_id from match, venue,team as t2,team as t1 where match.venue_id=venue.venue_id and match.team1=t1.team_id and match.team2 = t2.team_id");
         res.json(allMatches.rows);
         // console.log("All matches sent");
     } catch (err) {
